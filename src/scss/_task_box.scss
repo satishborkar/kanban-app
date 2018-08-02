@@ -1,0 +1,16 @@
+.task-box{
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    min-height: 30px;
+    padding: 10px;
+    color:#fff;
+    text-align: center;
+    margin-top: 7px;
+    border-radius: 3px;
+    @include green;
+}
+
+
+
+

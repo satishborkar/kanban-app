@@ -1,0 +1,76 @@
+{
+  "token": [
+    "A4C4VEY61HAH06OIZL49TTS1B",
+    "A4C4VEY61HAH06OIZL49TTS1E",
+    "A4C4VEY61HAH06OIZL49TTS1D",
+    "A4C4VEY61HAH06OIZL49TTS1T",
+    "A4C4VEY61HAH06OIZL50TTS1D",
+    "A4C4VEY61HAH06OIZL51TTS1B",
+    "A4C4VEY61HAH06OIZL52TTS1E",
+    "A4C4VEY61HAH06OIZL53TTS1T",
+    "A4C4VEY61HAH06OIZL54TTS1D",
+    "A4C4VEY61HAH06OIZL55TTS1B"
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Stanley",
+      "lastName": "Mccoy",
+      "email": "stanley.mccoy77@example.com",
+      "phone": "(129)-461-4152",
+      "status": "active",
+      "username": "stanley",
+      "password": "stanley"
+    },
+    {
+      "id": 2,
+      "firstName": "Carolyn",
+      "lastName": "Barnett",
+      "email": "carolyn.barnett32@example.com",
+      "phone": "(686)-781-3950",
+      "status": "active",
+      "username": "varsha",
+      "password": "varsha"
+    },
+    {
+      "id": 3,
+      "firstName": "Larry",
+      "lastName": "Hayes",
+      "email": "larry.hayes99@example.com",
+      "phone": "(369)-999-6644",
+      "status": "active",
+      "username": "larry",
+      "password": "larry"
+    },
+    {
+      "id": 4,
+      "firstName": "Cathy",
+      "lastName": "Scott",
+      "email": "cathy.scott36@example.com",
+      "phone": "(749)-335-6106",
+      "status": "inactive",
+      "username": "bhima",
+      "password": "bhima"
+    },
+    {
+      "id": 5,
+      "firstName": "Satish",
+      "lastName": "Borkar",
+      "email": "satyaspb@gmail.com",
+      "phone": "(91) 9850892963",
+      "status": "inactive",
+      "username": "satish",
+      "password": "satish"
+    },
+    {
+      "id": 6,
+      "firstName": "Harry",
+      "lastName": "Potter",
+      "email": "potter.harry@gmail.com",
+      "phone": "9850892963",
+      "status": "active",
+      "username": "pradip",
+      "password": "pradip"
+    }
+  ]
+}
