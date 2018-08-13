@@ -23,21 +23,34 @@ class Header extends Component {
             return null
         }
         return (
-            <nav className="navbar navbar-inverse navbar-fixed-top">
+            <nav className="navbar navbar-inverse navbar-fixed-top header-fixed">
                 <div className="container-fluid">
-                    <div className="navbar-header">
-                        <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                            <span className="sr-only">Toggle navigation</span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                        </button>
-                        <a className="navbar-brand" href="#">{this.props.title}</a>
+                    <div className="col-md-3">
+                        <div className="navbar-header">
+                            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span className="sr-only">Toggle navigation</span>
+                                <span className="icon-bar"></span>
+                                <span className="icon-bar"></span>
+                                <span className="icon-bar"></span>
+                            </button>
+                            <a className="navbar-brand" href="#">{this.props.title}</a>
+                        </div>
                     </div>
-                    <div id="navbar" className="collapse navbar-collapse">
-                        <span className="active"><a href="javascript:void(0)" onClick={this.logOutLocal}>Logout</a></span>
-                        {Links}
+                    <div className="col-md-4">
+                        sdfsad
                     </div>
+                    <div className="col-md-3">
+                        <div id="navbar" className="collapse navbar-collapse">
+                            {Links}
+                        </div>
+                    </div>
+                    <div className="col-md-2">
+                        <ul className="nav navbar-nav pull-right">
+                            <li className="active"><a href="javascript:void(0)" onClick={this.logOutLocal}>Logout</a></li>
+                        </ul>
+
+                    </div>
+
                 </div>
             </nav>
         );
