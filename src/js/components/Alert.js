@@ -4,7 +4,7 @@ const Alert = ({ errCode, msg, erroType, hidden }) => {
   if (hidden) {
     return null;
   }
-  return <div>There is some error message</div>;
+  return <div className="container-fluid">There is some error message</div>;
 };
 
 export default Alert;

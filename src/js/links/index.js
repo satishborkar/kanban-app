@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default (
-    <ul>
-        <li>
+    <ul className="nav navbar-nav">
+        < li >
             <Link to="/dashboard">Dashboard</Link>
-        </li>
+        </li >
         <li>
             <Link to="/teams">Teams</Link>
         </li>
@@ -15,5 +15,6 @@ export default (
         <li>
             <Link to="/profile">Profile</Link>
         </li>
-    </ul>
+        
+    </ul >
 );

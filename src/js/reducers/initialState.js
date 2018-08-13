@@ -1,4 +1,7 @@
 export default {
-    user: [],
+    user: {
+        isLogin: false,
+        data: []
+    },
     alert: {}
 }

@@ -1,18 +1,15 @@
-import appConfig from "../helpers/config";
+import { userConfig } from '../helpers/config';
+
 
 export function isLogged() {
   if (
     localStorage.getItem("user") &&
-    //localStorage.getItem("user") === appConfig.user &&
-    localStorage.getItem("token") 
-     //&& localStorage.getItem("token") === appConfig.token
+    localStorage.getItem("user") === userConfig.user &&
+    localStorage.getItem("token") &&
+    localStorage.getItem("token") === userConfig.token
   ) {
     return true;
-  } 
+  }
+  return false
 }
 
-export function logOutLocalUser() {
-  console.log("logging out user..");
-  localStorage.removeItem("user");
-  localStorage.removeItem("token");
-}

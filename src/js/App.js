@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 
 import * as actionCreators from "./actions/creators";
 import { isLogged } from "./helpers/lib";
-import Routes from "./routes";
+import PageContainer from './components/PageContainer';
 import Alert from "./components/Alert";
 
 import Header from "./components/Header";
@@ -22,52 +22,54 @@ class App extends Component {
   }
 
   render() {
-    const alert = this.props.alert;
-    console.log("App is getting renderd..");
-    if (localStorage.getItem("user") != undefined) {
+    console.log("APP is rendering...");
+    //const alert = this.props.alert;
+    if (localStorage.getItem("user") && isLogged()) {
       return (
         <div className="app-wrapper">
           <Alert />
-          <Header title="Welcome to Kanban Dashboard" />
-          {Routes}
+          <Header title="Kanban" />
+          <PageContainer />
           <Footer />
         </div>
       );
     }
     return (
       <div className="login-wrapper">
-        {alert.message && (
+        {/* {alert.message && (
           <div className={`alert ${alert.type}`}>{alert.message}</div>
-        )}
-        {Routes}
+        )} */}
+        <PageContainer />
       </div>
     );
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.user != nextProps.user) {
-      this.setState({
-        updated: true
-      });
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.user != nextProps.user) {
+  //     this.setState({
+  //       updated: true
+  //     });
+  //   }
+  // }
 }
 
-function mapStateToProps(state) {
-  return {
-    alert: state.alert
-  };
-}
+// function mapStateToProps(state) {
+//   return {
+//     alert: state.alert
+//   };
+// }
 
-function mapDispatchToProps(dispatch) {
-  const obj = {
-    actions: bindActionCreators(actionCreators, dispatch)
-  };
+// function mapDispatchToProps(dispatch) {
+//   const obj = {
+//     actions: bindActionCreators(actionCreators, dispatch)
+//   };
 
-  return obj;
-}
+//   return obj;
+// }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(App);
+
+export default App;
