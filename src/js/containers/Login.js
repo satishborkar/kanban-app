@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { logOutLocalUser } from "../helpers/lib";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionCreators from "../actions/creators";
-import appConfig from "../helpers/config";
+//import appConfig from "../helpers/config";
 
 class Login extends Component {
   constructor(props) {
@@ -15,30 +14,40 @@ class Login extends Component {
 
     this.loginUser = this.loginUser.bind(this);
     this.getUserDetails = this.getUserDetails.bind(this);
+    this.logOutLocalUser = this.logOutLocalUser.bind(this);
   }
 
   componentWillMount() {
-    logOutLocalUser();
+    //log out user before login
+    this.logOutLocalUser();
+  }
+
+  logOutLocalUser() {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
   }
 
   loginUser(e) {
     e.preventDefault();
     const userInfo = {
-      username: this.refs.usr.value,
-      password: this.refs.pwd.value
+      username: this.refs.usr.value.toLowerCase(),
+      password: this.refs.pwd.value.toLowerCase()
     };
-    this.props.action.login(userInfo);
+    this.props.actions.login(userInfo);
+    //this.clearAlert = this.clearAlert.bind(this);
   }
 
+  // clearAlert() {
+  //   this.props.actions.clearAlert();
+  // }
+
   getUserDetails(props) {
-    const loggedUser = props.user[0];
-    if (localStorage) {
-      localStorage.setItem("user", loggedUser.firstName);
-      localStorage.setItem("token", "A4C4VEY61HAH06OIZL54TTS1D");
-    }
-    appConfig.token = "A4C4VEY61HAH06OIZL54TTS1D";
-    appConfig.user = loggedUser.firstName;
+    //appConfig.token = "A4C4VEY61HAH06OIZL54TTS1D";
+    //appConfig.user = loggedUser.firstName.toLowerCase();
     props.history.push("/dashboard");
+    this.setState({
+      userDetails: props.user
+    });
   }
 
   componentDidMount() {
@@ -46,30 +55,32 @@ class Login extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.user != nextProps.user) {
+    if (this.props.user.data != nextProps.user.data) {
       this.getUserDetails(nextProps);
     }
   }
 
   render() {
-    //console.log(this.props)
     return (
       <div className="login-panel">
         <div className="box-shashow">
-          <h1> Kanban Login </h1>
           <form onSubmit={this.loginUser}>
-            <div className="row">
-              <div>
+            <div className="col-md-12 no-gutter">
+              <h3> Kanban Board </h3>
+              <div className="col-xs-12 col-md-12">
                 <label>Username</label>
-                <input type="text" tabIndex="1" ref="usr" name="username" />
+                <input type="text" tabIndex="1" ref="usr" className="form-control" placeholder="username" name="username" />
               </div>
-              <div>
+              <div className="col-xs-12 col-md-12">
                 <label>Password</label>
-                <input type="password" ref="pwd" name="password" />
+                <input type="password" ref="pwd" className="form-control" placeholder="*****" name="password" />
+
               </div>
-              <div>
-                <button type="submit"> Login </button>
-                <button type="submit"> Cancel </button>
+              <div className="col-xs-12 col-md-12">
+                <button type="submit" className="btn btn-success"> Login </button>
+                <button type="reset" className="btn btn-danger" onClick={this.clearAlert}>
+                  Cancel
+                </button>
               </div>
             </div>
           </form>
@@ -84,14 +95,13 @@ class Login extends Component {
 // }
 function mapStateToProps(state) {
   return {
-    user: state.user,
-    error: state.error
+    user: state.user
   };
 }
 
 function mapDispatchToProps(dispatch) {
   const obj = {
-    action: bindActionCreators(actionCreators, dispatch)
+    actions: bindActionCreators(actionCreators, dispatch)
   };
 
   return obj;

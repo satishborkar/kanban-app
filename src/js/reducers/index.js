@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import LoginReducer from "./login";
-import ErrorReducer from "./err";
+import AlertReducer from "./alert";
 
 const rootReducer = combineReducers({
   user: LoginReducer,
-  error: ErrorReducer
+  alert: AlertReducer
 });
 
 export default rootReducer;

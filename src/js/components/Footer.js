@@ -6,7 +6,7 @@ const Footer = ({ hidden }) => {
         return null
     }
     return (
-        <div>
+        <div className="container-fluid">
             footer
         </div>
     );
