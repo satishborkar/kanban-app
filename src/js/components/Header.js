@@ -19,6 +19,7 @@ class Header extends Component {
     }
 
     render() {
+        const userInfo = JSON.parse(localStorage.getItem('userinfo'));
         if (this.props.hidden || !isLogged()) {
             return null
         }
@@ -36,15 +37,17 @@ class Header extends Component {
                             <a className="navbar-brand" href="#">{this.props.title}</a>
                         </div>
                     </div>
-                    <div className="col-md-4">
-                        sdfsad
+                    <div className="col-md-5 white-text">
+                        <span className="pull-right">
+                        Welcome, {userInfo.lastName} {userInfo.firstName}
+                        </span>
                     </div>
                     <div className="col-md-3">
                         <div id="navbar" className="collapse navbar-collapse">
                             {Links}
                         </div>
                     </div>
-                    <div className="col-md-2">
+                    <div className="col-md-1">
                         <ul className="nav navbar-nav pull-right">
                             <li className="active"><a href="javascript:void(0)" onClick={this.logOutLocal}>Logout</a></li>
                         </ul>
@@ -56,11 +59,6 @@ class Header extends Component {
         );
     }
 };
-function mapStateToProps(state) {
-    return {
-        user: state.user
-    };
-}
 
 function mapDispatchToProps(dispatch) {
     const obj = {
@@ -70,6 +68,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
 )(Header);

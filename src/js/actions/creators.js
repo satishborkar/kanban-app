@@ -18,6 +18,7 @@ export function login(userInfo) {
           userConfig.token = "A4C4VEY61HAH06OIZL54TTS1D";
 
           if (localStorage) {
+            localStorage.setItem("userinfo", JSON.stringify(loggedUser));
             localStorage.setItem("user", loggedUser.firstName.toLowerCase());
             localStorage.setItem("token", "A4C4VEY61HAH06OIZL54TTS1D");
           }
