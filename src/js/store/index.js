@@ -11,6 +11,7 @@ middleWare.push(thunk);
 const loggerMiddleware = createLogger({
     predicate: () => process.env.NODE_ENV === 'development',
 });
+
 middleWare.push(loggerMiddleware)
 
 export const store = createStore(rootReducer, initialState, compose(

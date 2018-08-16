@@ -24,15 +24,29 @@ export function login(userInfo) {
           }
 
           dispatch({ type: ACTION.LOGIN, payload: userDetails });
-          dispatch({ type: ACTION.LOGIN_SUCCESS, payload: { isLogin: true } });
+          dispatch({
+            type: ACTION.LOGIN_SUCCESS, payload: {
+              isLogin: true
+            }
+          });
+
+          dispatch({
+            type: ACTION.ALERT_SUCCESS, payload: {
+              status: "202",
+              message: "Welcome to Kanban",
+              type: "alert-success"
+            }
+          });
+
+
 
         } else {
           dispatch({
             type: ACTION.ALERT_ERROR,
             payload: {
               status: "404",
-              message: "No record found!",
-              type: "error"
+              message: "Sorry!, Username or Password did not match. please check again..",
+              type: "alert-danger"
             }
           });
         }
@@ -42,7 +56,7 @@ export function login(userInfo) {
           payload: {
             status: "502",
             message: "API service is unavailable..",
-            type: "error"
+            type: "alert-warning"
           }
         });
       }
