@@ -13,14 +13,14 @@ const App = () => {
     return (
       <div className="app-wrapper">
         <Header title="Kanban" />
-        <PageContainer alert={alert} />
+        <PageContainer />
         <Footer />
       </div>
     );
   }
   return (
     <div className="login-wrapper">
-      <PageContainer alert={alert} />
+      <PageContainer />
     </div>
   );
 }

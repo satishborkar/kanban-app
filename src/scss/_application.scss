@@ -27,6 +27,10 @@ body {
     height: 100vh;
 }
 
+.alert{
+    border-radius: 2px;
+}
+
 .login-wrapper .alert {
     width: 450px;
     height: 50px;
@@ -39,6 +43,24 @@ body {
     z-index: 999;
     transform: translateY(-220px);
     border-radius: 2px;
+}
+
+.alert-success{
+    background-color: #4cae4c;
+    border-color: #4cae4c;
+    color:#fff;
+}
+
+.alert-danger{
+    background-color: #d43f3a;
+    border-color: #d43f3a;
+    color:#fff;
+}
+
+.alert-warning{
+    background-color: #fcd20b;
+    border-color: #fcd20b;
+    color:#fff;
 }
 
 .login-panel {

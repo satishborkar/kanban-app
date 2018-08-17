@@ -30,15 +30,15 @@ export function login(userInfo) {
             }
           });
 
-          dispatch({
-            type: ACTION.ALERT_SUCCESS, payload: {
-              status: "202",
-              message: "Welcome to Kanban",
-              type: "alert-success"
-            }
-          });
-
-
+          if (loggedUser) {
+            dispatch({
+              type: ACTION.ALERT_SUCCESS, payload: {
+                status: "202",
+                message: `Welcome, ${loggedUser.firstName}`,
+                type: "alert-success"
+              }
+            });
+          }
 
         } else {
           dispatch({
@@ -56,7 +56,7 @@ export function login(userInfo) {
           payload: {
             status: "502",
             message: "API service is unavailable..",
-            type: "alert-warning"
+            type: "alert-danger"
           }
         });
       }

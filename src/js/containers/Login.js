@@ -61,29 +61,33 @@ class Login extends Component {
   }
 
   render() {
+    const { alert } = this.props;
     return (
-      <div className="login-panel">
-        <div className="box-shashow">
-          <form onSubmit={this.loginUser}>
-            <div className="col-md-12 no-gutter">
-              <h3> Kanban Board </h3>
-              <div className="col-xs-12 col-md-12">
-                <label>Username</label>
-                <input type="text" tabIndex="1" ref="usr" className="form-control" placeholder="username" name="username" />
-              </div>
-              <div className="col-xs-12 col-md-12">
-                <label>Password</label>
-                <input type="password" ref="pwd" className="form-control" placeholder="*****" name="password" />
+      <div className="container-fluid">
+        {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
+        <div className="login-panel">
+          <div className="box-shashow">
+            <form onSubmit={this.loginUser}>
+              <div className="col-md-12 no-gutter">
+                <h3> Kanban Board </h3>
+                <div className="col-xs-12 col-md-12">
+                  <label>Username</label>
+                  <input type="text" tabIndex="1" ref="usr" className="form-control" placeholder="username" name="username" />
+                </div>
+                <div className="col-xs-12 col-md-12">
+                  <label>Password</label>
+                  <input type="password" ref="pwd" className="form-control" placeholder="*****" name="password" />
 
-              </div>
-              <div className="col-xs-12 col-md-12">
-                <button type="submit" className="btn btn-success"> Login </button>
-                <button type="reset" className="btn btn-danger" onClick={this.clearAlert}>
-                  Cancel
+                </div>
+                <div className="col-xs-12 col-md-12">
+                  <button type="submit" className="btn btn-success"> Login </button>
+                  <button type="reset" className="btn btn-danger" onClick={this.clearAlert}>
+                    Cancel
                 </button>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     );
@@ -95,7 +99,8 @@ class Login extends Component {
 // }
 function mapStateToProps(state) {
   return {
-    user: state.user
+    user: state.user,
+    alert: state.alert
   };
 }
 
