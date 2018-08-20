@@ -27,7 +27,7 @@ body {
     height: 100vh;
 }
 
-.alert{
+.alert {
     border-radius: 2px;
 }
 
@@ -45,22 +45,22 @@ body {
     border-radius: 2px;
 }
 
-.alert-success{
+.alert-success {
     background-color: #4cae4c;
     border-color: #4cae4c;
-    color:#fff;
+    color: #fff;
 }
 
-.alert-danger{
+.alert-danger {
     background-color: #d43f3a;
     border-color: #d43f3a;
-    color:#fff;
+    color: #fff;
 }
 
-.alert-warning{
+.alert-warning {
     background-color: #fcd20b;
     border-color: #fcd20b;
-    color:#fff;
+    color: #fff;
 }
 
 .login-panel {
@@ -205,4 +205,32 @@ a.link-add {
 
 .white-text {
     color: #fff;
+}
+
+.nav.navbar-nav li {
+    margin-right: 5px;
+}
+
+.nav.navbar-nav li a {
+    display: block;
+    border-radius: 2px;
+    transition: all ease-in 0.3s;
+}
+
+.nav.navbar-nav li a:hover,
+.nav.navbar-nav li a:focus{
+    outline:none;
+    background-color: #7fbb00;
+    color: #fff;
+}
+
+.nav.navbar-nav li a.active {
+    outline:none;
+    background-color: #4cae4c;
+    color: #fff;
+}
+
+.nav.navbar-nav li a.active:hover,
+.nav.navbar-nav li a.active:focus{
+    box-shadow:0 0 2px 0.3s;
 }

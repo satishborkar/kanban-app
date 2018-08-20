@@ -24,6 +24,7 @@ class Login extends Component {
 
   logOutLocalUser() {
     localStorage.removeItem("user");
+    localStorage.removeItem("userinfo");
     localStorage.removeItem("token");
   }
 

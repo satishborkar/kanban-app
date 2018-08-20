@@ -1,20 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default (
     <ul className="nav navbar-nav pull-right">
         < li >
-            <Link to="/dashboard">Dashboard</Link>
+            <NavLink exact to="/dashboard">Dashboard</NavLink>
         </li >
         <li>
-            <Link to="/teams">Teams</Link>
+            <NavLink exact to="/teams" activeClassName="active">Teams</NavLink>
         </li>
         <li>
-            <Link to="/projects">Projects</Link>
+            <NavLink exact to="/projects" activeClassName="active">Projects</NavLink>
         </li>
         <li>
-            <Link to="/profile">Profile</Link>
+            <NavLink exact to="/profile" activeClassName="active">Profile</NavLink>
         </li>
-        
+
     </ul >
 );

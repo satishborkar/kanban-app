@@ -12,13 +12,13 @@ class Header extends Component {
         this.logOutLocal = this.logOutLocal.bind(this);
     }
 
-
     logOutLocal() {
         window.location.pathname = "/login";
         this.props.actions.logOut();
     }
 
     render() {
+        console.log("Rendering Header UI...", this.props);
         const userInfo = JSON.parse(localStorage.getItem('userinfo'));
         if (this.props.hidden || !isLogged()) {
             return null
@@ -39,7 +39,7 @@ class Header extends Component {
                     </div>
                     <div className="col-md-5 white-text">
                         <span className="pull-right">
-                        Welcome, {userInfo.lastName} {userInfo.firstName}
+                            Welcome, {userInfo.lastName} {userInfo.firstName}
                         </span>
                     </div>
                     <div className="col-md-3">
@@ -60,6 +60,14 @@ class Header extends Component {
     }
 };
 
+const mapStateToProps = (state) => {
+    return {
+        router: state.router,
+    }
+}
+
+// const mapStateToProps = ({ router }) => ({ router })
+
 function mapDispatchToProps(dispatch) {
     const obj = {
         actions: bindActionCreators(actionCreators, dispatch)
@@ -68,6 +76,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-    null,
-    mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps,
+    //for updating routes
+    null, { pure: false }
 )(Header);

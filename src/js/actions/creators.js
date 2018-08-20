@@ -33,13 +33,12 @@ export function login(userInfo) {
           if (loggedUser) {
             dispatch({
               type: ACTION.ALERT_SUCCESS, payload: {
-                status: "202",
+                status: "200",
                 message: `Welcome, ${loggedUser.firstName}`,
                 type: "alert-success"
               }
             });
           }
-
         } else {
           dispatch({
             type: ACTION.ALERT_ERROR,
