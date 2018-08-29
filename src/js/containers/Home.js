@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as actionCreators from "../actions/creators";
+import Alert from "../components/Alert";
+
 
 class Home extends Component {
     constructor(props) {
         super(props)
+        this.clearAlert = this.clearAlert.bind(this);
+    }
+
+    clearAlert() {
+        this.props.actions.clearAlert();
     }
 
     render() {
@@ -12,7 +20,7 @@ class Home extends Component {
 
         return (
             <div className="container-fluid">
-                {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
+                {alert.message && <Alert alert={alert} clearAlert={this.clearAlert} />}
                 <div>
                     <h1>Welcome to Kanban.</h1>
                     <p>
@@ -31,4 +39,12 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Home);
+function mapDispatchToProps(dispatch) {
+    const obj = {
+        actions: bindActionCreators(actionCreators, dispatch)
+    };
+
+    return obj;
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

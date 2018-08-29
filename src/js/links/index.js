@@ -7,13 +7,13 @@ export default (
             <NavLink exact to="/dashboard">Dashboard</NavLink>
         </li >
         <li>
-            <NavLink exact to="/teams" activeClassName="active">Teams</NavLink>
+            <NavLink to="/teams" activeClassName="active">Teams</NavLink>
         </li>
         <li>
-            <NavLink exact to="/projects" activeClassName="active">Projects</NavLink>
+            <NavLink to="/projects" activeClassName="active">Projects</NavLink>
         </li>
         <li>
-            <NavLink exact to="/profile" activeClassName="active">Profile</NavLink>
+            <NavLink to="/profile" activeClassName="active">Profile</NavLink>
         </li>
 
     </ul >

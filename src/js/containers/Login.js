@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionCreators from "../actions/creators";
-//import appConfig from "../helpers/config";
+import Alert from "../components/Alert";
 
 class Login extends Component {
   constructor(props) {
@@ -15,6 +15,7 @@ class Login extends Component {
     this.loginUser = this.loginUser.bind(this);
     this.getUserDetails = this.getUserDetails.bind(this);
     this.logOutLocalUser = this.logOutLocalUser.bind(this);
+    this.clearAlert = this.clearAlert.bind(this);
   }
 
   componentWillMount() {
@@ -35,12 +36,8 @@ class Login extends Component {
       password: this.refs.pwd.value.toLowerCase()
     };
     this.props.actions.login(userInfo);
-    //this.clearAlert = this.clearAlert.bind(this);
+    this.clearAlert = this.clearAlert.bind(this);
   }
-
-  // clearAlert() {
-  //   this.props.actions.clearAlert();
-  // }
 
   getUserDetails(props) {
     //appConfig.token = "A4C4VEY61HAH06OIZL54TTS1D";
@@ -51,21 +48,32 @@ class Login extends Component {
     });
   }
 
-  componentDidMount() {
-    //console.log("userDetails", this.state.userDetails);
+  clearAlert() {
+    this.props.actions.clearAlert();
+  }
+
+  removeAlertAuto() {
+    const alert = this.clearAlert;
+    setTimeout(alert, 2000);
+    clearTimeout(alert);
   }
 
   componentWillReceiveProps(nextProps) {
+    // if (nextProps.alert) {
+    //   this.removeAlertAuto();
+    // }
     if (this.props.user.data != nextProps.user.data) {
       this.getUserDetails(nextProps);
     }
   }
+ 
 
   render() {
     const { alert } = this.props;
     return (
       <div className="container-fluid">
-        {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
+        {alert.message && <Alert alert={alert} clearAlert={this.clearAlert} />}
+
         <div className="login-panel">
           <div className="box-shashow">
             <form onSubmit={this.loginUser}>
